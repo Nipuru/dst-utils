@@ -4,8 +4,9 @@ local TUNING = GLOBAL.TUNING
 --[[ TUNING设置 ]]
 --------------------------------------------------------------------------
 
--- 冰箱保鲜
+-- 冰箱冰切 保鲜 
 TUNING.PERISH_FRIDGE_MULT = 0
+
 -- 盐盒保鲜
 TUNING.PERISH_SALTBOX_MULT = -0.1
 
@@ -63,4 +64,11 @@ AddPrefabPostInit("beargerfur_sack", function(inst)
 	if inst.components.container then
 		inst.components.container:EnableInfiniteStackSize(true)
 	end
+end)
+
+-- 修改熊皮包使其与冰箱独立
+AddPrefabPostInit("icepack", function(inst)
+	inst:RemoveTag("fridge")
+	inst:AddComponent("preserver")
+	inst.components.preserver:SetPerishRateMultiplier(.5)
 end)
