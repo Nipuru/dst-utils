@@ -3,17 +3,28 @@ local TheNet = GLOBAL.TheNet
 
 local IsServer = TheNet:GetIsServer() or TheNet:IsDedicated()
 if IsServer then
-    -- 冰箱冰切 保鲜 
+    -- 冰箱保鲜 
     if GetModConfigData("fridge_preserver") then
         TUNING.PERISH_FRIDGE_MULT = 0
     end
-    
+
+    -- 修改熊皮包使其与冰箱独立
+    AddPrefabPostInit("icepack", function(inst)
+        inst:RemoveTag("fridge")
+        inst:AddComponent("preserver")
+        inst.components.preserver:SetPerishRateMultiplier(GetModConfigData("icepack_preserver"))
+    end)
+
+    -- 小偷背包保鲜
+    AddPrefabPostInit("krampus_sack", function(inst)
+        inst:AddComponent("preserver")
+        inst.components.preserver:SetPerishRateMultiplier(GetModConfigData("krampus_sack_preserver"))
+    end)
 
     -- 盐盒保鲜
     if GetModConfigData("saltbox_preserver") then
         TUNING.PERISH_SALTBOX_MULT = 0
     end
-    
 
     -- 鸟笼保鲜
     if GetModConfigData("cage_preserver") then

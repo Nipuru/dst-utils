@@ -113,6 +113,28 @@ configuration_options =
         default = false,
     },
     {
+        name = "icepack_preserver",
+        label = "熊皮包保鲜",
+		hover = "开启后冰箱冰切永久保鲜",
+        options =
+        {
+            {description = "开启", data = 0},
+            {description = "关闭", data = 0.5},
+        },
+        default = 0.5,
+    },
+    {
+        name = "krampus_sack_preserver",
+        label = "小偷背包保鲜",
+		hover = "开启后小偷背包永久保鲜",
+        options =
+        {
+            {description = "开启", data = 0},
+            {description = "关闭", data = 1},
+        },
+        default = 1,
+    },
+    {
         name = "saltbox_preserver",
         label = "盐箱保鲜",
 		hover = "开启后盐箱永久保鲜",
