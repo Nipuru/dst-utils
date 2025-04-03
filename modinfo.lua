@@ -2,7 +2,7 @@
 name = "飘然工具箱"
 description = "[饥友们一起玩]服务器系列mod"
 author = "nipuru"
-version = "1.5"
+version = "1.6"
 
 forumthread = ""
 
