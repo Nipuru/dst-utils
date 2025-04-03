@@ -115,7 +115,7 @@ configuration_options =
     {
         name = "icepack_preserver",
         label = "熊皮包保鲜",
-		hover = "开启后冰箱冰切永久保鲜",
+		hover = "开启后熊皮包永久保鲜",
         options =
         {
             {description = "开启", data = 0},
